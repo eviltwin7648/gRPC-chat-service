@@ -1,0 +1,16 @@
+syntax = 'proto3';
+
+package chat;
+
+option go_package = "/gen/chat";
+
+message ChatMessage{
+string user = 1;
+string message = 2;
+string room_id = 3;
+int64 timestamp =4;
+}
+
+service ChatService {
+rpc ChatStream(stream ChatMessage) returns (stream ChatMessage);
+}
